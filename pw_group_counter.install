@@ -3,7 +3,6 @@ use Drupal\field\Entity\FieldStorageConfig;
 
 const PW_GROUP_COUNTER_PARAGRAPH_NAME = 'pw_group_counter';
 
-const FIELD_PW_COUNTER_REFERENCE = 'field_pw_counter_reference';
 
 
 function pw_group_counter_install() {
@@ -17,12 +16,6 @@ function pw_group_counter_install() {
  */
 function pw_group_counter_uninstall(){
 
-  $field_counter_reference = FieldStorageConfig::loadByName('paragraph', FIELD_PW_COUNTER_REFERENCE);
-
-
-  if ($field_counter_reference) {
-    $field_counter_reference->delete();
-  }
 
 
   $paragraph_types = array(PW_GROUP_COUNTER_PARAGRAPH_NAME);
