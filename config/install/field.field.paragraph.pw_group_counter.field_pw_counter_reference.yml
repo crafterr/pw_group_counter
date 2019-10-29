@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_pw_counter_reference
+    - paragraphs.paragraphs_type.pw_group_counter
+  module:
+    - entity_reference_revisions
+id: paragraph.pw_group_counter.field_pw_counter_reference
+field_name: field_pw_counter_reference
+entity_type: paragraph
+bundle: pw_group_counter
+label: Counters
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      pw_single_counter: single_counter
+    target_bundles_drag_drop:
+      pw_group_counter:
+        weight: 10
+        enabled: false
+      pw_single_counter:
+        enabled: true
+        weight: 20
+field_type: entity_reference_revisions

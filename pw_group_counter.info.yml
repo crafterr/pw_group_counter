@@ -1,0 +1,9 @@
+name: 'Pw Group Counter'
+type: module
+description: 'Provides parahraph group numbers with title and background'
+core: 8.x
+package: 'PixelWeb'
+dependencies:
+  - pw_single_counter
+  - svg_image
+

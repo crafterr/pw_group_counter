@@ -1,0 +1,37 @@
+<?php
+use Drupal\field\Entity\FieldStorageConfig;
+
+const PARAGRAPH_NAME = 'pw_group_counter';
+
+const FIELD_COUNTER_REFERENCE = 'field_pw_counter_reference';
+
+
+function pw_group_counter_install() {
+
+}
+
+/**
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function pw_group_counter_uninstall(){
+
+  $field_counter_reference = FieldStorageConfig::loadByName('paragraph', FIELD_COUNTER_REFERENCE);
+
+
+  if ($field_counter_reference) {
+    $field_counter_reference->delete();
+  }
+
+
+  $paragraph_types = array(PARAGRAPH_NAME);
+  foreach ($paragraph_types as $paragraph_type) {
+    $para_type = \Drupal::entityTypeManager()->getStorage('paragraphs_type')->load($paragraph_type);
+    if ($para_type) {
+      $para_type->delete();
+    }
+  }
+}
+
+
