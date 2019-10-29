@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.storage.paragraph.field_pw_counter_reference
     - paragraphs.paragraphs_type.pw_group_counter
+    - paragraphs.paragraphs_type.pw_single_counter
   module:
     - entity_reference_revisions
 id: paragraph.pw_group_counter.field_pw_counter_reference
